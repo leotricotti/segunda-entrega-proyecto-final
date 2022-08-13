@@ -1,6 +1,3 @@
-//Declaración de las variables que dan inicio a las operaciones
-//Constitucion del saldo inicial
-let saldoCajaAhorro = 123343.56;
 //Variable que almacena la informacion provista por el usuario
 let capturar = document.getElementById("depositos-submit");
 //Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
@@ -54,5 +51,5 @@ capturar.onclick = () => {
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
 agreagrDeposito = () => {
   operaciones.unshift(nuevoDeposito);
-  console.table(operaciones);
 };
+
