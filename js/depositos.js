@@ -1,11 +1,15 @@
 //Declaración de las variables que dan inicio a las operaciones
 //Constitucion del saldo inicial
 let saldoCajaAhorro = 123343.56;
-//Codigo que captura el boton aceptar  
+//Codigo que captura el boton que confirma la operacion
 const captura = document.getElementById("depositos-submit");
+//Codigo que captura el boton que modifica la operacion 
+const clean = document.getElementById("limpiar-campo");
+//Codigo que captura el campo donde el usuario debe ingresar la cantidad de dinerao que desea depsositar
+let inputDepositos = document.getElementById("depositos-input");
 //Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
 captura.onclick = () => {
-  // console.log("1");
+  // Constructor del objeto depositos;
   class Deposito {
     constructor(fecha, hora, operacion, monto, saldo) {
       this.fecha = fecha;
@@ -56,10 +60,7 @@ agreagrDeposito = () => {
   operaciones.unshift(nuevoDeposito);
   console.table(operaciones);
 };
-
-//Codigo  que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
-const clean = document.getElementById("limpiar-campo");
-let campo = document.getElementById("depositos-input");
+// Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
 clean.onclick = () => {
- campo.value = "";
+ inputDepositos.value = "";
 }
