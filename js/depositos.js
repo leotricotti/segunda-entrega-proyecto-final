@@ -1,8 +1,15 @@
-//Variable que almacena la informacion provista por el usuario
-let capturar = document.getElementById("depositos-submit");
+//Declaración de las variables que dan inicio a las operaciones
+//Constitucion del saldo inicial
+let saldoCajaAhorro = 123343.56;
+//Codigo que captura el boton que confirma la operacion
+const captura = document.getElementById("depositos-submit");
+//Codigo que captura el boton que modifica la operacion 
+const clean = document.getElementById("limpiar-campo");
+//Codigo que captura el campo donde el usuario debe ingresar la cantidad de dinerao que desea depsositar
+let inputDepositos = document.getElementById("depositos-input");
 //Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
-capturar.onclick = () => {
-  // Constructor del objeto depositos
+captura.onclick = () => {
+  // Constructor del objeto depositos;
   class Deposito {
     constructor(fecha, hora, operacion, monto, saldo) {
       this.fecha = fecha;
@@ -19,7 +26,7 @@ capturar.onclick = () => {
   //Codigo que informa el tipo de operacion
   nombrarOperacion = () => "Depósito";
   //Codigo que captura la informacion sobre la operacion provista por el usuario
-  let depositado = document.getElementById("depositos-input").value;
+  const depositado = document.getElementById("depositos-input").value;
   //Codigo que parsea el numero ingresado por el usuario
   parsearDineroDepositado = () => parseInt(depositado);
   //Codigo que actualiza el saldo de la caja de ahorro simulada
@@ -32,7 +39,7 @@ capturar.onclick = () => {
   //Codigo que convierte a pesos el saldo simulado
   convertirSaldoADinero = () => numeroAPesos(actualizarSaldoCajaAhorro());
   //Funcion que coinvierte un numero al formato de pesos argentinos
-  function numeroAPesos(dinero) {
+  numeroAPesos = (dinero) => {
     return (dinero = new Intl.NumberFormat("es-AR", {
       style: "currency",
       currency: "ARS",
@@ -53,4 +60,8 @@ agreagrDeposito = () => {
   operaciones.unshift(nuevoDeposito);
   console.table(operaciones);
 };
+// Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
+clean.onclick = () => {
+ inputDepositos.value = "";
+}
 
