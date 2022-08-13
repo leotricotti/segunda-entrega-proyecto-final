@@ -2,7 +2,7 @@
 let capturar = document.getElementById("depositos-submit");
 //Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
 capturar.onclick = () => {
-  // console.log("1");
+  // Constructor del objeto depositos
   class Deposito {
     constructor(fecha, hora, operacion, monto, saldo) {
       this.fecha = fecha;
@@ -51,5 +51,7 @@ capturar.onclick = () => {
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
 agreagrDeposito = () => {
   operaciones.unshift(nuevoDeposito);
+  console.table(operaciones);
 };
 
+//
