@@ -1,6 +1,3 @@
-//Declaración de las variables que dan inicio a las operaciones
-//Constitucion del saldo inicial
-let saldoCajaAhorro = 123343.56;
 //Codigo que captura el boton que confirma la operacion
 const captura = document.getElementById("depositos-submit");
 //Codigo que captura el boton que modifica la operacion 
