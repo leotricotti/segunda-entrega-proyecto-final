@@ -44,7 +44,7 @@ capturar.onclick = () => {
 }
 
 agreagrDeposito = () => {
-  operaciones.push(nuevoDeposito);
+  operaciones.unshift(nuevoDeposito);
   console.table(operaciones);
 }
 
