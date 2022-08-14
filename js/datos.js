@@ -17,6 +17,9 @@ const cuentas = [];
 //Llamadas a las funciones 
 cargarOperaciones();
 cargarCuentas();
+guardarLocal("operaciones", JSON.stringify(operaciones));
+guardarLocal("cuentas", JSON.stringify(cuentas));
+guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
 //Funcion que carga las oeraciones bancarias simuladas al array de operaciones 
 function cargarOperaciones(){
   operaciones.push(new Operacion("08/07/2022", "15:55", "Deposito", "$ 15.000.00", "$ 125.343.00"));
@@ -47,6 +50,6 @@ function cargarCuentas() {
   cuentas.push({tipo: "Cta Corriente", moneda: "$", cuenta: "5069-5689652/4", identificador: "Cuenta", saldo: "$ 200.000,00"});
   cuentas.push({tipo: "Caja de Ahorro", moneda: "USD", cuenta: "5069-5685686/4", identificador: "Cuenta", saldo: "USD 5.000,00"});
 }  
-
-
+//Funcion que convierte la informacion a JSON y la guarda en el local storage para luego ser recuperada
+const guardarLocal = (clave, valor) => localStorage.setItem(clave, valor);
 
