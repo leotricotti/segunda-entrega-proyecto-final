@@ -59,7 +59,7 @@ function cargarCuentas() {
 cargarCuentas();
 //Funcion que convierte la informacion a JSON y la guarda en el localstorage para luego ser recuperada
 const guardarLocal = (clave, valor) => localStorage.setItem(clave, valor);
-//Llamada a la funcion para guardar los datos necesarios para iniciar el programa
+//Llamadas a la funcion para guardar los datos necesarios para iniciar el programa
 guardarLocal("operacionesOdenadas", JSON.stringify(operacionesOdenadas));
 guardarLocal("cuentas", JSON.stringify(cuentas));
 guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
