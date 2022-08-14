@@ -1,29 +1,29 @@
 //Codigo que captura el boton que confirma la operacion
-const captura = document.getElementById("depositos-submit");
+const captura = document.getElementById("extracciones-submit");
 //Codigo que captura el boton que modifica la operacion 
 const clean = document.getElementById("limpiar-campo");
 //Codigo que captura el campo donde el usuario debe ingresar la cantidad de dinerao que desea depsositar
-let inputDepositos = document.getElementById("depositos-input");
+let inputExtraccion = document.getElementById("extracciones-input");
 
 /**** Declaracion de funciones ******/
 
 //Funcion que captura la fecha en que se realiza la operación
-capturarDiaDeposito = () => new Date().toLocaleDateString();
+capturarDiaExtraccion = () => new Date().toLocaleDateString();
 //Funcion que captura la hora en que se realiza la operacion
-capturarHoraDeposito = () => new Date().toLocaleTimeString();
+capturarHoraExtraccion = () => new Date().toLocaleTimeString();
 //Codigo que informa el tipo de operacion
-nombrarOperacion = () => "Depósito";
-//Funcion que captura la informacion sobre la operacion provista por el usuari
-depositar = () => inputDepositos.value;
+nombrarOperacion = () => "Extraccion Adelanto";
+//Funcion que captura la informacion sobre la operacion provista por el usuario
+extraerDinero = () => inputExtraccion.value;
 //Funcion que parsea el numero ingresado por el usuario
-parsearDineroDepositado = () => parseInt(depositar());
+parsearDineroExtraido = () => parseInt(extraerDinero());
 //Codigo que actualiza el saldo de la caja de ahorro simulada
 actualizarSaldoCajaAhorro = () => {
-  saldoCajaAhorro = parsearDineroDepositado() + saldoCajaAhorro;
+  saldoCajaAhorro = saldoCajaAhorro - parsearDineroExtraido();
   return saldoCajaAhorro;
 }
 //Funcion que convierte a pesos el dato parseado
-numeroADinero = () => numeroAPesos(depositar());
+numeroADinero = () => numeroAPesos(extraerDinero());
 //Codigo que convierte a pesos el saldo simulado
 convertirSaldoADinero = () => numeroAPesos(actualizarSaldoCajaAhorro());
 //Funcion que coinvierte un numero al formato de pesos argentinos
@@ -36,7 +36,7 @@ numeroAPesos = (dinero) => {
 //Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
 captura.onclick = () => {
   // Constructor del objeto depositos;
-  class Deposito {
+  class Extraccion {
     constructor(fecha, hora, operacion, monto, saldo) {
       this.fecha = fecha;
       this.hora = hora;
@@ -46,15 +46,15 @@ captura.onclick = () => {
     }
   }
   //Codigo que utiliza el constructor Depositos para crear un nuevo objeto que contiene los datos de la operacion realizada
-  nuevoDeposito = new Deposito(
-    capturarDiaDeposito(),
-    capturarHoraDeposito(),
+  nuevaExtraccion = new Extraccion(
+    capturarDiaExtraccion(),
+    capturarHoraExtraccion(),
     nombrarOperacion(),
     numeroADinero(),
     convertirSaldoADinero()
   );
   //Llamada a las funciones declaradas 
-  agregarDeposito();
+  agregarOperacion();
   confirmarOperacion();
   modificarOpcion();
   agregarTexto();
@@ -65,17 +65,17 @@ const text = document.querySelector(".text");
 confirmarOperacion = () => {
   text.innerHTML = "";
   text.innerText = `
-  Operacion realizada con exito. Su saldo es: ${nuevoDeposito.saldo}
+  Operacion realizada con exito. Su saldo es: ${nuevaExtraccion.saldo}
   `;
 }
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
-agregarDeposito = () => {
-  operaciones.unshift(nuevoDeposito);
+agregarOperacion = () => {
+  operaciones.unshift(nuevaExtraccion);
   console.log(operaciones);
 };
-// Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
+// Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a extraer
 clean.onclick = () => {
-  inputDepositos.value = "";
+  inputExtraccion.value = "";
  }
 //Funcion que modifica el HTML al momento de devolver la operacion solicitada por el usuario
 function agregarTexto() {
