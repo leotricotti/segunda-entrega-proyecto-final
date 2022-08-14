@@ -1,5 +1,5 @@
 //Constitucion del saldo inicial
-let saldoCajaAhorro = 123343.56;
+let saldoCajaAhorro = 100000;
 //Constructor que crea los objetos que van a  simular las operaciones bancarias realizadas por el usuario en el último mes
 class Operacion {
   constructor(fecha, hora, operacion, monto, saldo) {
