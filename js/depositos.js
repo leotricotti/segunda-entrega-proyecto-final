@@ -42,6 +42,7 @@ captura.onclick = () => {
       currency: "ARS",
     }).format(dinero));
   }
+  //Codigo que utiliza el constructor Depositos y sus funciones asociadas para crear un nuevo objeto que contiene los datos de la operacion realizada
   nuevoDeposito = new Deposito(
     capturarDiaDeposito(),
     capturarHoraDeposito(),
@@ -49,7 +50,7 @@ captura.onclick = () => {
     numeroADinero(),
     convertirSaldoADinero()
   );
-  //Llamada a la funcion que agrega el deposito realizado al array de operaciones
+  //Llamada a las funciones declaradas por fuera de la funcion principal
   agregarDeposito();
   confirmarOperacion();
 };
@@ -64,7 +65,6 @@ confirmarOperacion = () => {
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
 agregarDeposito = () => {
   operaciones.unshift(nuevoDeposito);
-  console.table(operaciones);
 };
 // Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
 clean.onclick = () => {
