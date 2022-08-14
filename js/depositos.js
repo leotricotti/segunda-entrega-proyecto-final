@@ -24,14 +24,14 @@ captura.onclick = () => {
   nombrarOperacion = () => "Depósito";
   //Codigo que captura la informacion sobre la operacion provista por el usuario
   const depositado = document.getElementById("depositos-input").value;
-  //Codigo que parsea el numero ingresado por el usuario
+  //Funcion que parsea el numero ingresado por el usuario
   parsearDineroDepositado = () => parseInt(depositado);
   //Codigo que actualiza el saldo de la caja de ahorro simulada
   actualizarSaldoCajaAhorro = () => {
     saldoCajaAhorro = parsearDineroDepositado() + saldoCajaAhorro;
     return saldoCajaAhorro;
   }
-  //Codigo que convierte a pesos el dato parseado
+  //Funcion que convierte a pesos el dato parseado
   numeroADinero = () => numeroAPesos(depositado);
   //Codigo que convierte a pesos el saldo simulado
   convertirSaldoADinero = () => numeroAPesos(actualizarSaldoCajaAhorro());
@@ -53,8 +53,11 @@ captura.onclick = () => {
   //Llamada a las funciones declaradas por fuera de la funcion principal
   agregarDeposito();
   confirmarOperacion();
+  modificarOpcion();
+  agregarTexto();
+  modificarOpcion();
 };
-//Codigo que captura 
+//Funcion que devuelve al usuario la confirmacion de su operacion 
 const text = document.querySelector(".text");
 confirmarOperacion = () => {
   text.innerHTML = "";
@@ -70,3 +73,22 @@ agregarDeposito = () => {
 clean.onclick = () => {
   inputDepositos.value = "";
  }
+//Funcion que modifica el HTML al momento de devolver la operacion solicitada por el usuario
+function agregarTexto() {
+  //Codigo que agrega texto al html
+  let textoAgregado = document.querySelector(".agregar-texto");
+  textoAgregado.innerText = "Desea realizar otra operacion?";
+}
+//Funcion que modifica el HTML al momento de devolver la operacion solicitada por el usuario
+function modificarOpcion() {
+  //Codigo que cambia texto del html
+  let opcionModificada = document.querySelector(".opcion-modificada");
+  opcionModificada.innerHTML = "";
+  opcionModificada.innerHTML =
+    "<p>Si</p> <a href='../../index.html'> <div class='btn-derecha' id='btn-saldo'></div></a></li>";
+  //Codigo que cambia texto del html
+  let opcionModificadaDos = document.querySelector(".opcion-modificada-dos");
+  opcionModificadaDos.innerHTML = "";
+  opcionModificadaDos.innerHTML =
+    '<p>No</p> <a href="../salir/salir.html" class="link"> <div class="btn-derecha"></div></a>';
+}
