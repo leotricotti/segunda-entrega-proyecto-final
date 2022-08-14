@@ -55,9 +55,11 @@ function cargarCuentas() {
   cuentas.push({tipo: "Cta Corriente", moneda: "$", cuenta: "5069-5689652/4", identificador: "Cuenta", saldo: "$ 200.000,00"});
   cuentas.push({tipo: "Caja de Ahorro", moneda: "USD", cuenta: "5069-5685686/4", identificador: "Cuenta", saldo: "USD 5.000,00"});
 }  
+//LLamada a la funcion
 cargarCuentas();
-//Funcion que convierte la informacion a JSON y la guarda en el local storage para luego ser recuperada
+//Funcion que convierte la informacion a JSON y la guarda en el localstorage para luego ser recuperada
 const guardarLocal = (clave, valor) => localStorage.setItem(clave, valor);
+//Llamada a la funcion para guardar los datos necesarios para iniciar el programa
 guardarLocal("operacionesOdenadas", JSON.stringify(operacionesOdenadas));
 guardarLocal("cuentas", JSON.stringify(cuentas));
 guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
