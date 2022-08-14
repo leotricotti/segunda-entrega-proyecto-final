@@ -50,15 +50,23 @@ captura.onclick = () => {
     convertirSaldoADinero()
   );
   //Llamada a la funcion que agrega el deposito realizado al array de operaciones
-  agreagrDeposito();
+  agregarDeposito();
+  confirmarOperacion();
 };
+//Codigo que captura 
+const text = document.querySelector(".text");
+confirmarOperacion = () => {
+  text.innerHTML = "";
+  text.innerText = `
+  Operacion realizada con exito. Su nuevo saldo es: ${nuevoDeposito.saldo}
+  `;
+}
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
-agreagrDeposito = () => {
+agregarDeposito = () => {
   operaciones.unshift(nuevoDeposito);
   console.table(operaciones);
 };
 // Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
 clean.onclick = () => {
- inputDepositos.value = "";
-}
-
+  inputDepositos.value = "";
+ }
