@@ -104,7 +104,7 @@ body {
   line-height: 1.5;
 }
 
-#depositos-input {
+.input {
   width: 35%;
   height: 2rem;
   color: #002856;
@@ -310,7 +310,7 @@ div::after {
     background-color: #304d75;
   }
 
-  #depositos-input {
+  .input {
     width: 20%;
   }
 
@@ -323,7 +323,7 @@ div::after {
     margin: 0 2rem 0 2rem;
   }
 
-  #depositos-input {
+  .input {
     width: 10%;
   }
 }
