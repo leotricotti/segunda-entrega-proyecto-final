@@ -1,7 +1,5 @@
 //Funcion que al consultar el saldo devuelve una tabla con el saldo de las cuentas bancarias simuladas
 function mostarSaldo() {
-  //Funcion que recupera el listado de cuentas almacenado
-  const cuentasAlmacenadas = JSON.parse(localStorage.getItem("cuentas"));
   //Codigo para cambiar el subtitulo del simulador
   let text = document.querySelector(".text");
   text.innerText = "Cuentas";
@@ -45,8 +43,6 @@ function mostarSaldo() {
 }
 //Funcion que al consultar los movimientos devuelve una tabla con los movimientos de las cuentas bancarias simuladas
 function mostarMovimientos() {
-  //Funcion que recupera el listado de cuentas almacenado
-  const operacionesAlmacenadas = JSON.parse(localStorage.getItem("operacionesOdenadas"));
   //Codigo para cambiar el subtitulo del simulador
   let text = document.querySelector(".text");
   text.innerText = "Ultimos Movimientos";
