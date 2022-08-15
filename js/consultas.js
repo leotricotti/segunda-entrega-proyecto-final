@@ -1,5 +1,6 @@
 //Funcion que al consultar el saldo devuelve una tabla con el saldo de las cuentas bancarias simuladas
 function mostarSaldo() {
+  const cuentasAlmacenadas = JSON.parse(localStorage.getItem("cuentas"));
   //Codigo para cambiar el subtitulo del simulador
   let text = document.querySelector(".text");
   text.innerText = "Cuentas";
@@ -23,7 +24,7 @@ function mostarSaldo() {
   let tableBody = document.createElement("tbody");
   tableBody.className = "table-group-divider";
   //Codigo que recorre el array de cuentas creado anteriormente y asigna casda elemento a su culumna
-  for (const cuenta of cuentas) {
+  for (const cuenta of cuentasAlmacenadas) {
     tableBody.innerHTML += `
         <tr>
           <td>${cuenta.tipo}</td>
@@ -43,6 +44,7 @@ function mostarSaldo() {
 }
 //Funcion que al consultar los movimientos devuelve una tabla con los movimientos de las cuentas bancarias simuladas
 function mostarMovimientos() {
+  const operacionesAlmacenadas = JSON.parse(localStorage.getItem("operacionesOrdenadas"));
   //Codigo para cambiar el subtitulo del simulador
   let text = document.querySelector(".text");
   text.innerText = "Ultimos Movimientos";
@@ -66,7 +68,7 @@ function mostarMovimientos() {
   let tableBody = document.createElement("tbody");
   tableBody.className = "table-group-divider";
   //Codigo que recorre el array de operaciones creado anteriormente
-  for (const operacion of operacionesOdenadas) {
+  for (const operacion of operacionesAlmacenadas) {
     tableBody.innerHTML += `
       <tr>
         <td>${operacion.fecha}</td>
