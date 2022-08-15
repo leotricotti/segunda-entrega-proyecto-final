@@ -68,7 +68,7 @@ confirmarOperacion = () => {
 }
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
 agregarDeposito = () => {
-  return nuevoDeposito;
+  guardarLocal("operacionesNuevas", JSON.stringify(nuevoDeposito));
 };
 // Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
 clean.onclick = () => {
