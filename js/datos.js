@@ -16,18 +16,18 @@ const operaciones = [];
 const cuentas = [];
 //Funcion que carga las oeraciones bancarias simuladas al array de operaciones 
 function cargarOperaciones(){
-  operaciones.push(new Operacion("08/07/2022", "15:55", "Deposito", "$ 15.000.00", "$ 125.343.00"));
-  operaciones.push(new Operacion("17/07/2022", "12:34", "Deposito", "$ 30.000.00","$ 155.343.00" ));
-  operaciones.push(new Operacion("10/07/2022", "12:18", "Deposito", "$ 20.000.00", "$ 115.343.00"));
-  operaciones.push(new Operacion("01/07/2022", "11:25", "Pago Servicio", "$ 2.572.27", "$ 130.253.65"));
-  operaciones.push(new Operacion("05/07/2022", "10:33", "Pago Servicio", "$ 5.362.87", "$ 127.156.65"));
-  operaciones.push(new Operacion("17/07/2022", "08:55", "Pago Servicio", "$ 1.942.63", "$ 122.165.36"));
-  operaciones.push(new Operacion("14/07/2022", "15:55", "Extraccion", "$ 15.000.00", "$ 125.343.54"));
-  operaciones.push(new Operacion("03/07/2022", "12:34", "Extraccion", "$ 30.000.00", "$ 95.343.00"));
-  operaciones.push(new Operacion("20/07/2022", "12:18", "Extraccion", "$ 20.000.00", "$ 115.343.00"));
-  operaciones.push(new Operacion("22/07/2022", "18:55", "Transferencia", "$ 25.000.00", "$ 95.343.00"));
-  operaciones.push(new Operacion("19/07/2022", "12:34", "Transferencia", "$ 22.000.00", "$ 144.343.00"));
-  operaciones.push(new Operacion("27/07/2022", "12:18", "Transferencias", "$ 20.000.00", "$ 123.343.56"));
+  operaciones.push(new Operacion("08/07/2022", "15:55:02", "Deposito", "$ 15.000.00", "$ 125.343.00"));
+  operaciones.push(new Operacion("17/07/2022", "12:34:23", "Deposito", "$ 30.000.00","$ 155.343.00" ));
+  operaciones.push(new Operacion("10/07/2022", "12:18:54", "Deposito", "$ 20.000.00", "$ 115.343.00"));
+  operaciones.push(new Operacion("01/07/2022", "11:25:45", "Pago Servicio", "$ 2.572.27", "$ 130.253.65"));
+  operaciones.push(new Operacion("05/07/2022", "10:33:32", "Pago Servicio", "$ 5.362.87", "$ 127.156.65"));
+  operaciones.push(new Operacion("17/07/2022", "08:55:08", "Pago Servicio", "$ 1.942.63", "$ 122.165.36"));
+  operaciones.push(new Operacion("14/07/2022", "15:55:17", "Extraccion", "$ 15.000.00", "$ 125.343.54"));
+  operaciones.push(new Operacion("03/07/2022", "12:34:32", "Extraccion", "$ 30.000.00", "$ 95.343.00"));
+  operaciones.push(new Operacion("20/07/2022", "12:18:25", "Extraccion", "$ 20.000.00", "$ 115.343.00"));
+  operaciones.push(new Operacion("22/07/2022", "18:55:12", "Transferencia", "$ 25.000.00", "$ 95.343.00"));
+  operaciones.push(new Operacion("19/07/2022", "12:34:58", "Transferencia", "$ 22.000.00", "$ 144.343.00"));
+  operaciones.push(new Operacion("27/07/2022", "12:18:21", "Transferencias", "$ 20.000.00", "$ 123.343.56"));
 }
 //Llamada a la funcion
 cargarOperaciones();
@@ -63,3 +63,4 @@ const guardarLocal = (clave, valor) => localStorage.setItem(clave, valor);
 guardarLocal("operacionesOdenadas", JSON.stringify(operacionesOdenadas));
 guardarLocal("cuentas", JSON.stringify(cuentas));
 guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
+

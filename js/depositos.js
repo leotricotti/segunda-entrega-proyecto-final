@@ -4,9 +4,33 @@ const captura = document.getElementById("depositos-submit");
 const clean = document.getElementById("limpiar-campo");
 //Codigo que captura el campo donde el usuario debe ingresar la cantidad de dinerao que desea depsositar
 let inputDepositos = document.getElementById("depositos-input");
-
-/**** Declaracion de funciones ******/
-
+//Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
+captura.onclick = () => {
+  // Constructor del objeto depositos;
+  class Operacion {
+    constructor(fecha, hora, operacion, monto, saldo) {
+      this.fecha = fecha;
+      this.hora = hora;
+      this.operacion = operacion;
+      this.monto = monto;
+      this.saldo = saldo;
+    }
+  }
+  //Codigo que utiliza el constructor Depositos para crear un nuevo objeto que contiene los datos de la operacion realizada
+  nuevoDeposito = new Operacion(
+    capturarDiaDeposito(),
+    capturarHoraDeposito(),
+    nombrarOperacion(),
+    numeroADinero(),
+    convertirSaldoADinero()
+  );
+  //Llamada a las funciones declaradas 
+  agregarDeposito();
+  confirmarOperacion();
+  modificarOpcion();
+  agregarTexto();
+  modificarOpcion();
+}
 //Funcion que captura la fecha en que se realiza la operación
 capturarDiaDeposito = () => new Date().toLocaleDateString();
 //Funcion que captura la hora en que se realiza la operacion
@@ -20,6 +44,7 @@ parsearDineroDepositado = () => parseInt(depositar());
 //Codigo que actualiza el saldo de la caja de ahorro simulada
 actualizarSaldoCajaAhorro = () => {
   saldoCajaAhorro = parsearDineroDepositado() + saldoCajaAhorro;
+  guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
   return saldoCajaAhorro;
 }
 //Funcion que convierte a pesos el dato parseado
@@ -33,33 +58,6 @@ numeroAPesos = (dinero) => {
     currency: "ARS",
   }).format(dinero));
 }
-//Funcion que captura la informacion brindada por el usuario y la convierte en un objeto
-captura.onclick = () => {
-  // Constructor del objeto depositos;
-  class Deposito {
-    constructor(fecha, hora, operacion, monto, saldo) {
-      this.fecha = fecha;
-      this.hora = hora;
-      this.operacion = operacion;
-      this.monto = monto;
-      this.saldo = saldo;
-    }
-  }
-  //Codigo que utiliza el constructor Depositos para crear un nuevo objeto que contiene los datos de la operacion realizada
-  nuevoDeposito = new Deposito(
-    capturarDiaDeposito(),
-    capturarHoraDeposito(),
-    nombrarOperacion(),
-    numeroADinero(),
-    convertirSaldoADinero()
-  );
-  //Llamada a las funciones declaradas 
-  agregarDeposito();
-  confirmarOperacion();
-  modificarOpcion();
-  agregarTexto();
-  modificarOpcion();
-};
 //Funcion que devuelve al usuario la confirmacion de su operacion 
 const text = document.querySelector(".text");
 confirmarOperacion = () => {
@@ -71,7 +69,7 @@ confirmarOperacion = () => {
 //Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
 agregarDeposito = () => {
   operaciones.unshift(nuevoDeposito);
-  console.log(operaciones);
+  guardarLocal("operacionesOdenadas", JSON.stringify(operacionesOdenadas));
 };
 // Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
 clean.onclick = () => {
