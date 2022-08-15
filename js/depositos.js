@@ -25,7 +25,6 @@ captura.onclick = () => {
     convertirSaldoADinero()
   );
   //Llamada a las funciones declaradas 
-  agregarDeposito();
   confirmarOperacion();
   modificarOpcion();
   agregarTexto();
@@ -44,7 +43,6 @@ parsearDineroDepositado = () => parseInt(depositar());
 //Codigo que actualiza el saldo de la caja de ahorro simulada
 actualizarSaldoCajaAhorro = () => {
   saldoCajaAhorro = parsearDineroDepositado() + saldoCajaAhorro;
-  guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
   return saldoCajaAhorro;
 }
 //Funcion que convierte a pesos el dato parseado
@@ -66,10 +64,6 @@ confirmarOperacion = () => {
   Operacion realizada con exito. Su saldo es: ${nuevoDeposito.saldo}
   `;
 }
-//Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
-agregarDeposito = () => {
-  guardarLocal("operacionesNuevas", JSON.stringify(nuevoDeposito));
-};
 // Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a depositar
 clean.onclick = () => {
   inputDepositos.value = "";

@@ -4,9 +4,6 @@ const captura = document.getElementById("extracciones-submit");
 const clean = document.getElementById("limpiar-campo");
 //Codigo que captura el campo donde el usuario debe ingresar la cantidad de dinerao que desea depsositar
 let inputExtraccion = document.getElementById("extracciones-input");
-
-/**** Declaracion de funciones ******/
-
 //Funcion que captura la fecha en que se realiza la operación
 capturarDiaExtraccion = () => new Date().toLocaleDateString();
 //Funcion que captura la hora en que se realiza la operacion
@@ -54,11 +51,11 @@ captura.onclick = () => {
     convertirSaldoADinero()
   );
   //Llamada a las funciones declaradas 
-  agregarOperacion();
   confirmarOperacion();
   modificarOpcion();
   agregarTexto();
   modificarOpcion();
+  guardarOperacion();
 };
 //Funcion que devuelve al usuario la confirmacion de su operacion 
 const text = document.querySelector(".text");
@@ -68,11 +65,6 @@ confirmarOperacion = () => {
   Operacion realizada con exito. Su saldo es: ${nuevaExtraccion.saldo}
   `;
 }
-//Funcion que agrega el deposito realizado al array de operaciones que funciona como base de datos
-agregarOperacion = () => {
-  operaciones.unshift(nuevaExtraccion);
-  console.log(operaciones);
-};
 // Funcion que limpia el campo input en caso de que el usuario quiera modificar el importe a extraer
 clean.onclick = () => {
   inputExtraccion.value = "";
@@ -96,3 +88,4 @@ function modificarOpcion() {
   opcionModificadaDos.innerHTML =
     '<p>No</p> <a href="../salir/salir.html" class="link"> <div class="btn-derecha"></div></a>';
 }
+
