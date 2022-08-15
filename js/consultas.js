@@ -23,7 +23,7 @@ function mostarSaldo() {
   let tableBody = document.createElement("tbody");
   tableBody.className = "table-group-divider";
   //Codigo que recorre el array de cuentas creado anteriormente y asigna casda elemento a su culumna
-  for (const cuenta of cuentasAlmacenadas) {
+  for (const cuenta of cuentas) {
     tableBody.innerHTML += `
         <tr>
           <td>${cuenta.tipo}</td>
@@ -66,7 +66,7 @@ function mostarMovimientos() {
   let tableBody = document.createElement("tbody");
   tableBody.className = "table-group-divider";
   //Codigo que recorre el array de operaciones creado anteriormente
-  for (const operacion of operacionesAlmacenadas) {
+  for (const operacion of operacionesOdenadas) {
     tableBody.innerHTML += `
       <tr>
         <td>${operacion.fecha}</td>

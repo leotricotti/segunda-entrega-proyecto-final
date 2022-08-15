@@ -63,6 +63,3 @@ const guardarLocal = (clave, valor) => localStorage.setItem(clave, valor);
 guardarLocal("operacionesOdenadas", JSON.stringify(operacionesOdenadas));
 guardarLocal("cuentas", JSON.stringify(cuentas));
 guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
-
-const cuentasAlmacenadas = JSON.parse(localStorage.getItem("cuentas"));
-const operacionesAlmacenadas = JSON.parse(localStorage.getItem("operacionesOdenadas"));
