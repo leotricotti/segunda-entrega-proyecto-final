@@ -1,5 +1,3 @@
-//Constitucion del saldo inicial
-let saldoCajaAhorro = 123343.56;
 //Constructor que crea los objetos que van a  simular las operaciones bancarias realizadas por el usuario en el último mes
 class Operacion {
   constructor(fecha, hora, operacion, monto, saldo) {
@@ -40,18 +38,9 @@ const operacionesOdenadas = operaciones.sort((a, b) => {
     return -1;
   }
 });
-//Funcion que coinvierte un numero al formato de pesos argentinos
-numeroAPesos = (dinero) => {
-  return (dinero = new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "ARS",
-  }).format(dinero));
-}
-//Variable que crea el saldo dinamico y lo convierte a formato pesos
-let saldo = numeroAPesos(saldoCajaAhorro);
 //Funcion que carga los objetos literales que contienen la informacion de la de las cuentas bancarias simuladas al array de cuentas
 function cargarCuentas() {
-  cuentas.push({tipo: "Caja de Ahorro", moneda: "$", cuenta: "5069-5689756/4", identificador: "Cuenta", saldo: "" + saldo});
+  cuentas.push({tipo: "Caja de Ahorro", moneda: "$", cuenta: "5069-5689756/4", identificador: "Cuenta", saldo: "$ 150.000.00" });
   cuentas.push({tipo: "Cta Corriente", moneda: "$", cuenta: "5069-5689652/4", identificador: "Cuenta", saldo: "$ 200.000,00"});
   cuentas.push({tipo: "Caja de Ahorro", moneda: "USD", cuenta: "5069-5685686/4", identificador: "Cuenta", saldo: "USD 5.000,00"});
 }  
@@ -62,4 +51,4 @@ const guardarLocal = (clave, valor) => localStorage.setItem(clave, valor);
 //Llamadas a la funcion para guardar los datos necesarios para iniciar el programa
 guardarLocal("operacionesOdenadas", JSON.stringify(operacionesOdenadas));
 guardarLocal("cuentas", JSON.stringify(cuentas));
-guardarLocal("saldo", JSON.stringify(saldoCajaAhorro));
+
