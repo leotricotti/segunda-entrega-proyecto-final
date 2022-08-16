@@ -1,3 +1,4 @@
+let saldoCajaAhorro = 150000;
 //Codigo que captura el boton que confirma la operacion
 const captura = document.getElementById("extracciones-submit");
 //Codigo que captura el boton que modifica la operacion 
